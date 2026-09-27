@@ -12,7 +12,9 @@ A single-file browser game: a tribute to the 1991 classic with 9 startup-themed 
 python3 -m http.server 8742
 ```
 
-Then open http://localhost:8742.
+Then open http://localhost:8742 (landing page) or http://localhost:8742/play/ (the game).
+
+`/play/?level=6` jumps straight to a level; `/play/?attract` makes the game play itself (used on the landing page).
 
 ## Controls
 
@@ -29,7 +31,7 @@ Then open http://localhost:8742.
 
 ## Tests
 
-Every level has an automated "idle loses" and "solution wins" check. In the browser console:
+Every level has an automated "idle loses" and "solution wins" check. On `/play/`, in the browser console:
 
 ```js
 await import('./tests.js').then(m => m.run())
