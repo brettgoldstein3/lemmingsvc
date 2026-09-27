@@ -2,3 +2,4 @@
 .vercel
 src-audio/
 logos/
+.env*

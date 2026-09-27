@@ -2,3 +2,4 @@ tests.js
 src-audio
 logos
 README.md
+.env.local
