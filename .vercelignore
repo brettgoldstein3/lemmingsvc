@@ -3,3 +3,4 @@ src-audio
 logos
 README.md
 .env.local
+deploy.sh

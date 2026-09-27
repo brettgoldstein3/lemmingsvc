@@ -1,5 +1,7 @@
 # VCs
 
+**Play: https://lemmingsvc.vercel.app**
+
 Lemmings, but they're VCs. Guide the herd into your round before they follow each other off a cliff.
 
 A single-file browser game: a tribute to the 1991 classic with 9 startup-themed levels (the data room, the startup curve, burn rate, Series A/B/C, Demo Day…).
@@ -18,6 +20,12 @@ Then open http://localhost:8742.
 - F1 / F2: release rate · P: pause · F: fast forward · double-click the mushroom (or F12): nuke
 - S: sound on/off · M: music on/off (both start off)
 - Touch: drag to scroll, tap a VC to assign
+
+## Deploy
+
+```bash
+./deploy.sh
+```
 
 ## Tests
 
