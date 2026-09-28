@@ -2,7 +2,7 @@
 Writes assets/vo4/<id>.mp3 and assets/vo4/timing.json: duration + onset (s, from trimmed start) of each marker phrase."""
 import base64, json, os, subprocess, urllib.request
 
-KEY = os.environ.get('ELEVENLABS_API_KEY') or [l.split('=', 1)[1].strip().strip('"\'') for l in open(os.path.expanduser('~/Documents/Coding/Micro/boomscroll/.env.local')) if l.startswith('ELEVENLABS_API_KEY=')][0]
+KEY = os.environ['ELEVENLABS_API_KEY']  # export your ElevenLabs API key first
 VOICE = 'pNInz6obpgDQGcFmaJgB'  # Adam
 OUT = os.path.join(os.path.dirname(__file__), '..', 'assets', 'vo4')
 LINES = [

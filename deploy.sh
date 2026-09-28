@@ -10,5 +10,5 @@ cp index.html og.png favicon.png "$D"/
 cp -R img "$D"/
 cp play/index.html play/sounds.js "$D/play/"
 cp -R .vercel "$D"/
-(cd "$D" && npx --yes vercel@latest deploy --prod --yes --scope brettlaunchhouses-projects)
+(cd "$D" && npx --yes vercel@latest deploy --prod --yes)  # uses the project linked in .vercel/ (run `vercel link` once)
 rm -rf "$D"
