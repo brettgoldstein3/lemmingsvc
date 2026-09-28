@@ -1,0 +1,91 @@
+<!doctype html>
+<!-- Source for og.png (1200x630 link preview). Regenerate with tools/make-og.sh -->
+<html>
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=block" rel="stylesheet">
+<style>
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; background: #000; }
+  img { image-rendering: pixelated; image-rendering: crisp-edges; display: block; }
+  .card { position: relative; width: 1200px; height: 630px; overflow: hidden;
+    background: url(../img/dirt.png) 0 0 / 960px auto repeat; }
+  .card::before { content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 70% at 72% 45%, rgba(255, 210, 140, 0.18), transparent 65%), linear-gradient(90deg, rgba(0,0,0,0.62), rgba(0,0,0,0.25) 55%, rgba(0,0,0,0.35)); }
+
+  .left { position: absolute; left: 64px; top: 58px; width: 520px; }
+  .logo { width: 284px; height: auto; filter: drop-shadow(0 8px 0 rgba(0,0,0,0.45)); margin-left: -6px; }
+  .kicker { font-family: 'Press Start 2P', monospace; font-size: 15px; color: #f0d8a0; letter-spacing: 1px; margin: 22px 0 18px; text-shadow: 3px 3px 0 #000; }
+  h1 { font-family: 'VT323', monospace; font-weight: normal; font-size: 76px; line-height: 0.92; color: #fff; margin: 0 0 16px; text-shadow: 4px 4px 0 #000; }
+  h1 em { font-style: normal; color: #7cf06a; }
+  .sub { font-family: 'VT323', monospace; font-size: 33px; line-height: 1.05; color: #f4ead8; margin: 0 0 26px; text-shadow: 3px 3px 0 #000; }
+  .cta { display: inline-flex; align-items: center; gap: 14px; font-family: 'Press Start 2P', monospace; font-size: 17px; color: #062806; padding: 16px 20px 14px;
+    background: linear-gradient(#b8ff9c, #58c850 55%, #3aa034); border: 3px solid #062806; box-shadow: inset 3px 3px 0 #e6ffd8, inset -3px -3px 0 #1c6418, 0 6px 0 #062806; }
+  .cta small { font-size: 12px; color: #0d4a0d; }
+
+  /* early-90s monitor */
+  .monitor { position: absolute; right: 56px; top: 44px; }
+  .bezel { position: relative; padding: 26px 26px 50px; border-radius: 8px; background: linear-gradient(180deg, #e2d8b8, #d3c8a4 55%, #c2b690);
+    box-shadow: inset 4px 4px 0 rgba(255,250,230,0.6), inset -5px -6px 0 rgba(80,64,30,0.22), 0 24px 40px rgba(0,0,0,0.6), 0 3px 0 #9e936f; }
+  .bezel::before { content: ''; position: absolute; left: 12px; right: 12px; top: 12px; bottom: 38px; border-radius: 10px;
+    background: linear-gradient(160deg, #b9ad88, #cfc49f 40%, #ddd3b0); box-shadow: inset 3px 3px 6px rgba(60,48,20,0.45), inset -2px -2px 0 rgba(255,250,230,0.5); }
+  .screen { position: relative; width: 480px; height: 300px; border-radius: 22px / 18px; overflow: hidden; box-shadow: 0 0 0 3px #1c1a14, 0 0 0 5px #6e6450; }
+  .screen img { width: 480px; height: 300px; }
+  .screen::after { content: ''; position: absolute; inset: 0; border-radius: inherit;
+    background: radial-gradient(ellipse 60% 45% at 30% 20%, rgba(255,255,255,0.10), transparent 70%), repeating-linear-gradient(to bottom, rgba(0,0,0,0.18) 0 1px, transparent 1px 3px), radial-gradient(ellipse at center, transparent 58%, rgba(0,0,0,0.6) 100%);
+    box-shadow: inset 0 0 34px rgba(0,0,0,0.8); }
+  .chin { position: absolute; left: 24px; right: 24px; bottom: 12px; display: flex; align-items: center; justify-content: space-between; }
+  .brand { display: flex; align-items: center; gap: 9px; font: italic bold 13px 'Arial Black', Arial, sans-serif; color: #7e7458; text-shadow: 1px 1px 0 rgba(255,250,230,0.8); }
+  .stripes { display: flex; flex-direction: column; gap: 1px; } .stripes i { width: 22px; height: 2px; display: block; }
+  .ctrl { display: flex; align-items: center; gap: 9px; } .ctrl i { width: 11px; height: 11px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #efe6c8, #9c9170); }
+  .ctrl b { width: 7px; height: 7px; border-radius: 50%; background: #5cff6a; box-shadow: 0 0 6px #5cff6a; }
+  .case { width: 562px; margin: -1px 0 0 -14px; height: 58px; border-radius: 4px; background: linear-gradient(180deg, #e4dab9, #cfc49f 60%, #b8ac86);
+    box-shadow: inset 3px 3px 0 rgba(255,250,230,0.55), inset -4px -4px 0 rgba(80,64,30,0.2), 0 16px 24px rgba(0,0,0,0.6); display: flex; align-items: center; gap: 14px; padding: 0 18px; box-sizing: border-box; }
+  .bay { width: 110px; height: 30px; border-radius: 2px; background: linear-gradient(#d9cfad, #c3b891); box-shadow: inset 1px 1px 2px rgba(60,48,20,0.4); position: relative; }
+  .bay::after { content: ''; position: absolute; left: 10%; right: 10%; top: 44%; height: 4px; background: #2a261c; }
+  .bay.s { width: 92px; }
+  .grill { flex: 1; height: 22px; background: repeating-linear-gradient(90deg, #9c9170 0 2px, transparent 2px 8px); opacity: 0.5; }
+  .mhz { font: bold 20px/1 'Courier New', monospace; color: #ff3a2a; background: #1a0808; padding: 3px 6px; text-shadow: 0 0 6px rgba(255,58,42,0.8); letter-spacing: 2px; }
+
+  /* marching herd */
+  .ground { position: absolute; left: 0; right: 0; bottom: 0; height: 22px; background: #58c850; box-shadow: inset 0 4px 0 #8ae07a, inset 0 8px 0 #2f8a2f; }
+  .vc { position: absolute; bottom: 22px; width: 32px; height: 56px; background: url(../img/vc-walk.png) 0 0 / 256px 56px no-repeat; }
+  .vc .badge { position: absolute; left: 50%; bottom: 62px; transform: translateX(-50%); height: 40px; width: auto; }
+  .bubble { position: absolute; font-family: 'VT323', monospace; font-size: 30px; color: #fff; background: #000; border: 3px solid #fff; padding: 0 10px; white-space: nowrap; }
+  .bubble::after { content: ''; position: absolute; left: 18px; bottom: -11px; width: 3px; height: 8px; background: #fff; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="left">
+    <img class="logo" src="../img/logo.png" alt="">
+    <div class="kicker">A TRIBUTE TO THE 1991 CLASSIC</div>
+    <h1>Lemmings,<br>but they're <em>VCs.</em></h1>
+    <p class="sub">Guide the herd into your round before they follow each other off a cliff.</p>
+    <div class="cta">▶ PLAY FREE <small>lemmingsvc.vercel.app</small></div>
+  </div>
+
+  <div class="monitor">
+    <div class="bezel">
+      <div class="screen"><img src="../img/level-6.png" alt=""></div>
+      <div class="chin">
+        <div class="brand"><div class="stripes"><i style="background:#58b848"></i><i style="background:#f0c030"></i><i style="background:#e8742a"></i><i style="background:#d8402a"></i><i style="background:#8a4ab8"></i><i style="background:#3a8ad0"></i></div>VC-1991</div>
+        <div class="ctrl"><i></i><i></i><b></b></div>
+      </div>
+    </div>
+    <div class="case"><div class="bay"></div><div class="bay s"></div><div class="grill"></div><div class="mhz">66</div></div>
+  </div>
+
+  <!-- the herd, led by the lead investor, walking right -->
+  <div class="vc" style="left: 1090px; background-position: -96px 0"><img class="badge" src="../img/badge-sequoia.png" alt=""></div>
+  <div class="vc" style="left: 1040px; background-position: -32px 0"></div>
+  <div class="vc" style="left: 1004px; background-position: -160px 0"></div>
+  <div class="vc" style="left: 958px; background-position: -64px 0"></div>
+  <div class="vc" style="left: 922px; background-position: -192px 0"></div>
+  <div class="vc" style="left: 880px; background-position: 0 0"></div>
+  <div class="vc" style="left: 842px; background-position: -128px 0"></div>
+  <div class="vc" style="left: 800px; background-position: -224px 0"></div>
+  <div class="bubble" style="left: 766px; bottom: 96px">Who else is in?</div>
+  <div class="ground"></div>
+</div>
+</body>
+</html>
