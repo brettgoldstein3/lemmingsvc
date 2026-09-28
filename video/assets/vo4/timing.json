@@ -1,0 +1,51 @@
+{
+ "r1": {
+  "duration": 4.95,
+  "marks": {
+   "who ask": 3.44
+  }
+ },
+ "r2": {
+  "duration": 3.7,
+  "marks": {
+   "who ask": 1.8
+  }
+ },
+ "r3": {
+  "duration": 4.985,
+  "marks": {
+   "who do": 3.095
+  }
+ },
+ "intro": {
+  "duration": 6.17,
+  "marks": {
+   "V.C.s": 1.47,
+   "An adaptation": 2.657
+  }
+ },
+ "a1": {
+  "duration": 3.905,
+  "marks": {
+   "the data room": 0.966,
+   "the burn rate": 1.896,
+   "Demo Day": 3.006
+  }
+ },
+ "a2": {
+  "duration": 5.17,
+  "marks": {
+   "Dig": 0.29,
+   "Build": 0.563,
+   "Bash": 1.71,
+   "Block": 2.45,
+   "Get every": 2.89
+  }
+ },
+ "cta": {
+  "duration": 0.898,
+  "marks": {
+   "Play": 0.132
+  }
+ }
+}
