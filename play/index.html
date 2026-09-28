@@ -21,7 +21,7 @@
 
   /* ---------- bare mode (landing page embed): just the canvas on black ---------- */
   html.bare body { background: #000; }
-  html.bare #room > *:not(#monitor), html.bare #case, html.bare #bezel-extras { display: none; }
+  html.bare #room > *:not(#monitor), html.bare #case, html.bare #bezel-extras, html.bare #keyboard { display: none; }
   html.bare #bezel::before { display: none; }
   html.bare #monitor, html.bare #bezel, html.bare #screen { all: unset; }
   html.bare #glass { display: none; }
@@ -74,7 +74,16 @@
     display: flex; align-items: center; gap: calc(var(--p) * 0.6); padding: 0 calc(var(--p) * 0.7); box-sizing: border-box; }
   #case .bay { width: calc(var(--p) * 4.6); height: calc(var(--p) * 1.3); border-radius: 2px; background: linear-gradient(#d9cfad, #c3b891); box-shadow: inset 1px 1px 2px rgba(60,48,20,0.4), inset -1px -1px 0 rgba(255,250,230,0.5); position: relative; }
   #case .bay::after { content: ''; position: absolute; left: 10%; right: 10%; top: 44%; height: calc(var(--p) * 0.16); background: #2a261c; border-radius: 1px; }
-  #case .bay.small { width: calc(var(--p) * 3.2); }
+  #case .bay.small { width: calc(var(--p) * 3.9); cursor: pointer; }
+  /* the disk sits in the slot; hover (or tap) ejects it far enough to read the label */
+  #disk-window { position: absolute; left: 12%; right: 12%; top: calc(44% + var(--p) * 0.08); height: calc(var(--p) * 3.6); overflow: hidden; z-index: 4; pointer-events: none; }
+  #disk { position: absolute; left: 4%; right: 4%; top: 0; height: calc(var(--p) * 3.1); transform: translateY(calc(-100% + var(--p) * 0.14));
+    background: linear-gradient(180deg, #1c1e26, #2c2f3a); border-radius: 0 0 3px 3px; box-shadow: 0 6px 10px rgba(0,0,0,0.45); }
+  #disk::before { content: ''; position: absolute; left: 8%; right: 8%; bottom: 7%; height: 58%; background: #f4f1e6; border-radius: 1px; }
+  #disk span { position: absolute; left: 12%; right: 6%; bottom: 12%; font: bold calc(var(--p) * 0.31)/1.2 'Comic Sans MS', 'Marker Felt', cursive; color: #b04030; transform: rotate(-3deg); white-space: pre; }
+  #disk i { position: absolute; right: 7%; bottom: 7%; width: calc(var(--p) * 0.28); height: calc(var(--p) * 0.28); background: #3a3e4a; }
+  html.ready #disk { transition: transform .35s cubic-bezier(.3, 1.6, .5, 1); }
+  #case .bay.small:hover #disk, #case .bay.small.out #disk { transform: translateY(calc(var(--p) * -0.9)); }
   #case .bay.small::before { content: ''; position: absolute; right: 8%; bottom: 12%; width: calc(var(--p) * 0.45); height: calc(var(--p) * 0.22); background: #a89c77; border-radius: 1px; }
   #case .spacer { flex: 1; height: calc(var(--p) * 0.9); background: repeating-linear-gradient(90deg, #9c9170 0 2px, transparent 2px calc(var(--p) * 0.3)); opacity: 0.5; }
   #case .turbo { display: flex; flex-direction: column; align-items: center; gap: 2px; font: bold calc(var(--p) * 0.26) Arial, sans-serif; color: #6e6450; letter-spacing: 1px; }
@@ -95,11 +104,7 @@
       linear-gradient(#e6ddbd, #cbbf98);
     background-clip: content-box, content-box, border-box; padding: calc(var(--p) * 0.3) calc(var(--p) * 0.4);
     box-shadow: 0 10px 16px rgba(0,0,0,0.5), inset 2px 2px 0 rgba(255,250,230,0.5); }
-  #floppy { position: absolute; z-index: 1; right: 6%; bottom: calc(var(--desk-px, 80px) * 0.3); width: calc(var(--p) * 3.2); height: calc(var(--p) * 3.2); background: #22242c; border-radius: 3px;
-    transform: perspective(300px) rotateX(55deg) rotateZ(-14deg); box-shadow: 0 8px 12px rgba(0,0,0,0.5); }
-  #floppy::before { content: ''; position: absolute; left: 24%; right: 24%; top: 0; height: 30%; background: linear-gradient(90deg, #b8bcc4, #e6e8ec 40%, #9ea2aa); }
-  #floppy::after { content: 'VCs \A Disk 1 of 2'; white-space: pre; position: absolute; left: 12%; right: 12%; bottom: 6%; height: 50%; background: #f4f1e6; color: #b04030; font: bold calc(var(--p) * 0.34)/1.2 'Comic Sans MS', cursive; padding: 4px; box-sizing: border-box; }
-  @media (max-width: 700px) { #floppy, #keyboard { display: none; } }
+  @media (max-width: 700px) { #keyboard { display: none; } }
 </style>
 </head>
 <body>
@@ -114,7 +119,8 @@
       </div>
     </div>
     <div id="case">
-      <div class="bay"></div><div class="bay small"></div>
+      <div class="bay"></div><div class="bay small" id="drive" title="Disk 1 of 2"><div id="disk-window"><div id="disk"><span>VCs
+Disk 1 of 2</span><i></i></div></div></div>
       <div class="spacer"></div>
       <div class="turbo"><b></b>TURBO</div>
       <div class="mhz">66</div>
@@ -122,7 +128,6 @@
     </div>
   </div>
   <div id="keyboard"></div>
-  <div id="floppy"></div>
   <div id="desk"></div>
 </div>
 <script src="sounds.js"></script>
@@ -149,6 +154,8 @@ function fit() {
   r.setProperty('--p', p + 'px'); r.setProperty('--desk', deskH + 'px'); r.setProperty('--desk-px', deskH + 'px');
 }
 addEventListener('resize', fit); fit();
+document.getElementById('drive').addEventListener('click', e => e.currentTarget.classList.toggle('out'));
+setTimeout(() => document.documentElement.classList.add('ready'), 120);
 
 // ---------- utils ----------
 function mulberry(a) { return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
