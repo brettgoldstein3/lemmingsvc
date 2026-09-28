@@ -1,0 +1,7 @@
+node_modules/
+capture/
+snapshots/
+renders/
+.hyperframes/
+.thumbnails/
+.DS_Store

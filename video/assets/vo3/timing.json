@@ -1,0 +1,30 @@
+{
+ "l1": {
+  "duration": 4.962,
+  "punch": 3.553
+ },
+ "l2": {
+  "duration": 4.6,
+  "punch": 2.29
+ },
+ "l3": {
+  "duration": 4.92,
+  "punch": 3.504
+ },
+ "l4": {
+  "duration": 6.12,
+  "punch": 3.053
+ },
+ "l5": {
+  "duration": 5.004,
+  "punch": 3.224
+ },
+ "l6": {
+  "duration": 5.728,
+  "punch": 4.058
+ },
+ "end": {
+  "duration": 6.362,
+  "punch": 2.1
+ }
+}
